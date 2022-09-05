@@ -52,5 +52,8 @@
 
 @mixin clear-list {
     list-style-type: none;
-    // @include reset;
+}
+
+@mixin BorderRadius{
+    border-radius: 25px;
 }
