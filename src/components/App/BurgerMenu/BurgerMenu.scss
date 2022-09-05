@@ -18,7 +18,7 @@
         position: absolute;
         width: 3.5vw;
         height: 7vw;
-        color: black;
+        color: $headandfoot ;
         background-color: rgba(255, 255, 255, 0);
         transition: .2s ease-in-out;
     }
@@ -54,10 +54,10 @@
     top: 5vh;
     width: 100%;
     padding: 0 0 1.6vw 1.8;
-    background-color: #111;
+    background-color: $headandfoot;
     .navigationLinks{
         text-decoration: none;
-        color: $primary-color;
+        color: $background;
         font-size: 1em;
     }
 }
