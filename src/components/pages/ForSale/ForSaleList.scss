@@ -1,0 +1,76 @@
+main{
+    display: grid;
+    grid-template-columns: auto;
+    padding-bottom: 7vw;
+    h1{
+        // text-align: center;
+        margin-left: 2%;
+        padding-bottom: 1%;
+    }
+    
+    article{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2%;
+        .card{
+            display: grid;
+            grid-template-columns: 1fr;
+            width: 90%;
+            margin-inline: 5%;
+            border: 1px solid #707070;
+            padding: 1vw;
+            img{
+                width: 100%;
+            }
+            figcaption{
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                gap: 1vw;
+                .AddressInfo{
+                    display: flex;
+                    flex-direction: column;
+                }
+                .EconomyInfo{
+                    display: grid;
+                    grid-template-columns: 2fr 1fr;
+                    div{
+                        display: flex;
+                        position: relative;
+                        p{
+                            
+                            &:first-child{
+                                // margin-bottom: -10vw;
+                                position: absolute;
+                                width: 5%;
+                                left: 0;
+                                top: -.2vw;
+                            }
+                            &:last-child{
+                                margin-left: 1.5vw;
+                            }
+                        }
+                        .A, .B{
+                            height: 50%;
+                            padding: 1.2%;
+                            background-color: #14C451;
+                        }
+                        .C, .D, .E{
+                            height: 50%;
+                            padding: 1.2%;
+                            background-color: #f3f306;
+                        }
+                        .F, .G, .H{
+                            height: 50%;
+                            padding: 1.2%;
+                            background-color: #c41414;
+                        }
+                    }
+                    p{
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                }
+            }
+        }
+    }
+}

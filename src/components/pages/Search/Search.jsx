@@ -1,7 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
-import { Layout } from "../../App/Layout/Layout";
 import { AiOutlineSearch } from "react-icons/ai";
 
 
@@ -14,7 +13,7 @@ export const Search = () => {
         setKeyword(data.keyword);
     }
     return (
-        <Layout title='' description='Søg blandt vores instrumenter her'>
+        <>
             {/* Closure */}
             <form onSubmit={handleSubmit(getSearchResult)}>
                 <input type="text" id="keyword" placeholder="Indtast søgeord"{...register('keyword', { required: true })} />
@@ -24,7 +23,7 @@ export const Search = () => {
                 <SearchResult keyword={keyword} />
 
             )}
-        </Layout>
+        </>
     )
 }
 

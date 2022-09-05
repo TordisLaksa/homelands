@@ -1,9 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+@import '../../../Assets/SCSS/mixins.scss';
+@import '../../../Assets/SCSS/vars.scss';
 
-nav{
+nav {
+    padding-top: 1%;
+    width: 90%;
+    margin: auto;
     font-family: 'Odibee Sans', cursive;
+
     @media (width < 1199px) {
         display: none;
+    }
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     
+    img{
+        width: 70%;
+
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        li {
+            padding-left: 1vw;
+            list-style: none;
+            a{
+                text-decoration: none;
+                color: $background;
+                font-size: 1.4rem;
+                &:focus{
+                    font-weight: bolder;
+                    color: $highlight;
+                }
+            }
+            &:last-of-type{
+                padding-right: 1vw;
+            }
+        }
     }
 }
