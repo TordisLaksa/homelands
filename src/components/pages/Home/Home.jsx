@@ -1,5 +1,9 @@
+import { Layout } from "../../App/Layout/Layout"
+
 export const Home = () => {
     return(
-        <h1>Home</h1>
+        <Layout title='Forside' description='Se vores mange foskellige ejendomme'>
+        
+        </Layout>
     )
 }
