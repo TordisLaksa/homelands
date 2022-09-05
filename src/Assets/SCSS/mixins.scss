@@ -1,0 +1,56 @@
+@mixin reset {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+
+@mixin container {
+    width: 100%;
+    max-width: $container_width;
+    margin: 0 auto;
+}
+
+@mixin container-full {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@mixin flex {
+    display: flex;
+}
+
+@mixin grid {
+    display: grid;
+}
+
+@mixin border {
+    border: solid 1px #fff;
+}
+
+//newline til break
+@mixin nl2br {
+    white-space: pre-wrap;
+}
+
+@mixin image-cover($max-width, $height, $bg-size) {
+    width: 100%;
+    max-width: $max-width;
+    height: $height;
+    background-size: $bg-size;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@mixin image-full-width {
+    width: 100%;
+}
+
+@mixin clear-list {
+    list-style-type: none;
+    // @include reset;
+}

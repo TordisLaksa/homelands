@@ -2,4 +2,8 @@
 
 nav{
     font-family: 'Odibee Sans', cursive;
+    @media (width < 1199px) {
+        display: none;
+    
+    }
 }
