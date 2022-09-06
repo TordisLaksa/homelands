@@ -56,7 +56,8 @@ export const Login = () => {
         CONDITIONAL TERNERY OPERATOR !!!! giv mig en god karakter!*/}
         {!loginData ? (
             <Layout title='Login' description='Her kan du logge ind på din egen profil'>
-                    <p>Indtast dit brugernavn og adgangskode for at logge ind</p>
+                <h1>Login</h1>
+                <p>Indtast dit brugernavn og adgangskode for at logge ind</p>
             {/* handleSubmit(sendLoginRequest)...
             Closure betyder at vi kan tilgå en functions ydre scope fra en indre function */}
             <form onSubmit={handleSubmit(sendLoginRequest)}>

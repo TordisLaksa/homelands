@@ -7,12 +7,13 @@ main{
         figure{
             display: flex;
             flex-direction: column;
-            // margin-inline: 5%;
-            margin-top: 10%;
+            padding-inline: 5%;
+            margin-top: 15%;
             background-color: rgba(255, 255, 255, 0.75);
+            
             #TopImg{
                 position: absolute;
-                top: -15%;
+                top: -8%;
                 z-index: -3;
                 width: 99.5vw;
                 height: 40%;
@@ -21,10 +22,11 @@ main{
             }
             #DetailHomeInfo{
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-columns: repeat(3, 1fr);
                 gap: 1%;
                 @include TinyPadding;
                 article{
+                    margin-block: 5%;
                     h5{
                         font-size: 1rem;
                     }
@@ -35,6 +37,21 @@ main{
                     &:nth-of-type(2){
                         display: grid;
                         grid-template-columns: repeat(4, 1fr);
+                        gap: 1%;
+                        .circle{
+                            display: flex;
+                            justify-content: center;
+                            width: 80%;
+                            background-color: #fefefebd;
+                            border-radius: 50%;
+                            border: 2px solid #70707050;
+                            img{
+                                height: 100%;
+                                width: 50%;
+                                vertical-align: middle;
+                                padding: 5%;
+                            }
+                        }
                     }
                     &:last-of-type{
                         align-items: flex-end;
@@ -44,9 +61,64 @@ main{
                     }
                 }
             }
+            #DetailSpecificInfo{
+                @include TinyPadding;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 29%;
+                article{
+                    display: flex;
+                    flex-direction: column;
+                    p{
+                        width: 100%;
+                    }
+                }
+            }
+            #DetailContact{
+                margin-top: 4%;
+                @include TinyPadding;
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 5%;
+                margin-right: 2%;
+                article{
+                    &:first-child{
+                        width: 100%;
+                        display: flex;
+                        padding-right: 10%;
+                        .nl2br {
+                            @include nl2br
+                        }
+                    }
+                    &:last-child{
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: 1%;
+                        justify-items: end;
+                        div{
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            justify-items: center;
+                            width: 50%;
+                            
+                            h4{
+                            margin-right: 20%;
+                            font-size: 2rem;
+                            padding-bottom: 2%;
+                            }
+                        
+                            
+                            img{
+                                width: 100%;
+                            }
+                            h6{
+                                font-size: 1.2rem;
+                            }
+                        }
+                    }
+                }
+            }
         }
-        .nl2br {
-            @include nl2br
-        }
+        
     }
 }

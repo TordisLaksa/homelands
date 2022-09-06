@@ -43,14 +43,12 @@ export const ForSaleDetails = () => {
         let TotalDays = Math.floor(difference / (1000 * 60 * 60 * 24));
         return TotalDays;
     }
-    console.log(days(todaySDate));
     return(
         <Layout title='Detaljer'>
             
         {homeData ? (
             <>
             <section>
-                {console.log(homeData)}
                 <figure>
                     <img id='TopImg' src={homeData.images[0].filename.large} alt={homeData.images[0].description} />
                     <figcaption id="DetailHomeInfo">
@@ -72,43 +70,45 @@ export const ForSaleDetails = () => {
                                 })}
                         </article>
                         <article>
-                            <h5>Kontantpris <span className="biggertxt"> {homeData.price} </span> </h5>
-                            <h5>Udbetaling {homeData.payout}</h5>
-                            <h5>Ejerudgift per måned {homeData.cost}</h5>
+                            <h5>Kontantpris: <span className="biggertxt"> {homeData.price} </span> </h5>
+                            <h5>Udbetaling: {homeData.payout}</h5>
+                            <h5>Ejerudgift per måned: {homeData.cost}</h5>
                         </article>
                     </figcaption>
-                    <figcaption>
+                    <figcaption id='DetailSpecificInfo'>
                         <article>
                             <p>Sagsnr. {homeData.id}</p>
-                            <p>Boligareal {homeData.floor_space}</p>
-                            <p>Grundareal {homeData.ground_space}</p>
-                            <p>Antal rum {homeData.num_rooms}</p>
-                            <p>Antal plan {homeData.num_floors}</p>
+                            <p>Boligarea: {homeData.floor_space}</p>
+                            <p>Grundareal: {homeData.ground_space}</p>
+                            <p>Antal rum: {homeData.num_rooms}</p>
+                            <p>Antal plan: {homeData.num_floors}</p>
                         </article>
                         <article>
-                            <p>Kælder {homeData.basement_space}</p>
-                            <p>Byggeår {homeData.year_construction}</p>
-                            <p>Ombygget {homeData.year_rebuilt }</p>
-                            <p>Energimærle {homeData.num_rooms}</p>
+                            <p>Kælder: {homeData.basement_space}</p>
+                            <p>Byggeår: {homeData.year_construction}</p>
+                            <p>Ombygget: {homeData.year_rebuilt }</p>
+                            <p>Energimærle: {homeData.num_rooms}</p>
                             <p>Liggetid: {days(todaySDate)} dage</p>
                         </article>
                         <article>
-                            <p>Kontantpris {homeData.price}</p>
-                            <p>Udbetaling {homeData.payout}</p>
-                            <p>Brutto ex. ejerudgift {homeData.gross}</p>
-                            <p>Netto ex. ejerudgift {homeData.net}</p>
-                            <p>Ejerudgift {homeData.cost}</p>
+                            <p>Kontantpris: {homeData.price}</p>
+                            <p>Udbetaling: {homeData.payout}</p>
+                            <p>Brutto ex. ejerudgift: {homeData.gross}</p>
+                            <p>Netto ex. ejerudgift: {homeData.net}</p>
+                            <p>Ejerudgift: {homeData.cost}</p>
                         </article>
                     </figcaption>
-                    <figcaption>
+                    <figcaption id='DetailContact'>
                             <article><p className="nl2br">{homeData.description}</p></article> 
                             <article>
+                                <div>  
                                 <h4>Kontakt</h4>
                                 <img src={homeData.staff.image} alt={`billede-af-${homeData.staff.firstname}`} />
                                 <h6>{homeData.staff.firstname} {homeData.staff.lastname}</h6>
                                 <p>{homeData.staff.position}</p>
                                 <p>Mobil: {homeData.staff.phone}</p>
                                 <p>Email: {homeData.staff.email}</p>
+                                </div>
                             </article>
                     </figcaption>
                 </figure>
