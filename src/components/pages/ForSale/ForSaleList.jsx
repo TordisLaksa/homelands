@@ -1,4 +1,4 @@
-import { useEffect, useImperativeHandle } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { Layout } from "../../App/Layout/Layout"
 import axios from 'axios';
@@ -29,7 +29,7 @@ export const ForSaleList = () => {
                 let val = Number(home.price).toLocaleString('da-DK');
                return(
                    <figure key={home.id} className='card'>
-                       <img src={home.images[0].filename.medium} alt="" />
+                       <img src={home.images[0].filename.medium} alt={home.type} />
                         <figcaption>
                             <article className="AddressInfo">
                             <h4>{home.address}</h4>

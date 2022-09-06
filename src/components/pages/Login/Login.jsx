@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useAuth } from "../../App/Auth/Auth";
+import './Login.scss';
+import { Layout } from "../../App/Layout/Layout";
 
 export const Login = () => {
     //useForm
@@ -53,31 +55,32 @@ export const Login = () => {
         for at logge ud (dette bliver lavet ved hjælp af en
         CONDITIONAL TERNERY OPERATOR !!!! giv mig en god karakter!*/}
         {!loginData ? (
-            // handleSubmit(sendLoginRequest)...
-            //Closure betyder at vi kan tilgå en functions ydre scope fra en indre function
+            <Layout title='Login' description='Her kan du logge ind på din egen profil'>
+                    <p>Indtast dit brugernavn og adgangskode for at logge ind</p>
+            {/* handleSubmit(sendLoginRequest)...
+            Closure betyder at vi kan tilgå en functions ydre scope fra en indre function */}
             <form onSubmit={handleSubmit(sendLoginRequest)}>
                 <div>
-                    <label htmlFor="username"> Brugernavn: </label>
                     <input type="text" id="username" placeholder="Indtast dit brugernavn" 
                     //registrer feltet username (kan også være hest)
                         {...register("username", { required: true })} />
                         {errors.username && (
-                            <span>Udfyld venligst dit brugernavn!</span>
+                            <span className="error">Udfyld venligst dit brugernavn!</span>
                         )}
                 </div>
                 <div>
-                    <label htmlFor="password">Adgangskode: </label>
                     <input type="password" id="password" placeholder="Indtast din adgangskode"
                         {...register("password", { required: true })} />
                         {errors.password && (
-                            <span>Udfyld venligst din adgangskode!</span>
+                            <span className="error">Udfyld venligst din adgangskode!</span>
                         )}
                 </div>
-                <div>
+                <div className="buttons">
                     <button>Login</button>
-                    <button type="reset">Nulstil felter</button>
+                    <button type="reset">Annuller</button>
                 </div>
             </form>
+            </Layout>
         ) :
             <div>
                 <p>Du er logget ind som <i>{loginData.username}</i></p>

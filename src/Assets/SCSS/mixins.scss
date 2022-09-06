@@ -58,3 +58,11 @@
     border-radius: 25px;
 }
 
+@mixin BorderRadiusButtons{
+    border-radius: 10px;
+}
+
+
+@mixin TinyPadding{
+    padding: 1%;
+}

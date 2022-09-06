@@ -15,7 +15,7 @@ export const Footer = () => {
                 </div>
                 <div>
                     <a href='mailto:info$homelands.dk'>Email: info@homelands.dk</a>
-                    <a href='tel:11-22-33-44'>Telefon: +45 1122 3344</a>
+                    <a href='tel:11-22-33-44'>Telefon: +45 11 22 33 44</a>
                 </div>
             </article>
             <article id='FooterSocialMedia'>

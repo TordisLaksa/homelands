@@ -1,3 +1,4 @@
+@import '../../../Assets/SCSS/mixins.scss';
 main{
     display: grid;
     grid-template-columns: auto;
@@ -36,10 +37,11 @@ main{
                     div{
                         display: flex;
                         position: relative;
-                        p{
-                            
+                        @include BorderRadiusButtons;
+                        width: 110%;
+                        height: 40%;
+                        p{  
                             &:first-child{
-                                // margin-bottom: -10vw;
                                 position: absolute;
                                 width: 5%;
                                 left: 0;
@@ -50,18 +52,15 @@ main{
                             }
                         }
                         .A, .B{
-                            height: 50%;
-                            padding: 1.2%;
+                            @include TinyPadding;
                             background-color: #14C451;
                         }
                         .C, .D, .E{
-                            height: 50%;
-                            padding: 1.2%;
+                            @include TinyPadding;
                             background-color: #f3f306;
                         }
                         .F, .G, .H{
-                            height: 50%;
-                            padding: 1.2%;
+                            @include TinyPadding;
                             background-color: #c41414;
                         }
                     }
