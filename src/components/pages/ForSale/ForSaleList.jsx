@@ -28,7 +28,6 @@ export const ForSaleList = () => {
             <article>
             {homeList && homeList.map(home => {
                 let val = Number(home.price).toLocaleString('da-DK');
-                // home_id == home.id;
                return(
                    <figure key={home.id} className='card'>
                         <Link to={`${home.id}`}>

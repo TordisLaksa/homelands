@@ -1,3 +1,52 @@
+@import '../../../Assets/SCSS/mixins.scss';
+
 main{
-    background-color: red;
+
+    section{
+        position: relative;
+        figure{
+            display: flex;
+            flex-direction: column;
+            // margin-inline: 5%;
+            margin-top: 10%;
+            background-color: rgba(255, 255, 255, 0.75);
+            #TopImg{
+                position: absolute;
+                top: -15%;
+                z-index: -3;
+                width: 99.5vw;
+                height: 40%;
+                object-fit: cover;
+                margin-left: -6%;
+            }
+            #DetailHomeInfo{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 1%;
+                @include TinyPadding;
+                article{
+                    h5{
+                        font-size: 1rem;
+                    }
+                    &:first-of-type, &:last-of-type{
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    &:nth-of-type(2){
+                        display: grid;
+                        grid-template-columns: repeat(4, 1fr);
+                    }
+                    &:last-of-type{
+                        align-items: flex-end;
+                        .biggertxt{
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+        .nl2br {
+            @include nl2br
+        }
+    }
 }
