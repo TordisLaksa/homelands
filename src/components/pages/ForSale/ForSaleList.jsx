@@ -1,11 +1,12 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { Layout } from "../../App/Layout/Layout"
 import axios from 'axios';
 import './ForSaleList.scss'
 
 export const ForSaleList = () => {
     
+    const { home_id } = useParams(0);
     const [ homeList, setHomeList ] = useState([]);
     
     useEffect(() => {
@@ -27,9 +28,12 @@ export const ForSaleList = () => {
             <article>
             {homeList && homeList.map(home => {
                 let val = Number(home.price).toLocaleString('da-DK');
+                // home_id == home.id;
                return(
                    <figure key={home.id} className='card'>
-                       <img src={home.images[0].filename.medium} alt={home.type} />
+                        <Link to={`${home.id}`}>
+                            <img src={home.images[0].filename.medium} alt={home.type} />
+                        </Link>
                         <figcaption>
                             <article className="AddressInfo">
                             <h4>{home.address}</h4>
