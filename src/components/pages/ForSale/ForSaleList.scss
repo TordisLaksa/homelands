@@ -13,6 +13,8 @@ main{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 2%;
+        width: 90%;
+        margin: auto;
         .card{
             display: grid;
             grid-template-columns: 1fr;

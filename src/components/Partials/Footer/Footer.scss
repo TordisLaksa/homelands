@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
 
 footer{
+    font-family: 'Odibee Sans', cursive;
     position: sticky;
     bottom: 0;
     background-color: $headandfoot;
@@ -11,7 +12,7 @@ footer{
     color: $background;
     padding-inline: 5%;
     padding-bottom: 1%;
-    font-family: 'Odibee Sans', cursive;
+    z-index: 50;
     #FooterContact{
         display: grid;
         grid-template-columns: 1fr 0.5fr 1fr;

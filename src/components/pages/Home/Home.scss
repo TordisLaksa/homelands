@@ -1,0 +1,124 @@
+@import '../../../Assets/SCSS/mixins.scss';
+@import '../../../Assets/SCSS/vars.scss';
+
+main{
+ position: relative;
+ width: 100%;
+    .Carousel{
+        position: absolute;
+        top: -5.5vw;
+        left: 0;
+        width: 99vw;
+        height: 30vw;
+        z-index: -30;
+        .css-1m9128y{
+            display: none;
+        }
+        button{
+            display: none;
+        }
+    }
+    .ImageWrapper{
+        height: 30vw;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img{
+            object-fit: cover;
+        }
+    }
+    
+#cardSection{
+    position: absolute;
+    top: 18vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3%;
+    width: 90%;
+    margin: auto;
+    
+    .Cards{
+        background-color: rgba(255, 255, 255, 0.85);
+        padding: 5%;
+        z-index: 4;
+        border: 1px solid #918e8e42;
+        @include BorderRadiusButtons;
+        height: 25vw;
+        &:hover{
+            background-color: #ffffff80;
+            border: 1px solid #ffffff80;
+        }
+        &:last-of-type{
+            figcaption{
+                padding-top: 2.5%;
+            }
+        }
+        img{
+            width: 100%;
+        }
+    }
+}
+#ReadyForComments{
+    margin-top: 50vw;
+    text-align: center;
+    display: grid;
+    h2{
+        font-size: 2rem;
+        margin-bottom: 3%;
+    }
+}
+
+#Employee{
+    padding-top: 1%;
+    h2{
+        text-align: center;
+        font-size: 1.4rem;
+        margin-bottom: 1%;
+    }
+    
+   #EmployeeCardContainer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3%;
+    width: 80%;
+    margin: auto;
+    
+    .EmployeeCard{
+        padding-inline: 2%;
+        border: 1px solid #70707050;
+        @include BorderRadiusButtons;
+        img{
+            object-fit: scale-down;
+            width: 100%;
+        }
+        figcaption{
+            text-align: left;
+            margin-top: 2%;
+            .hr{
+                width: 104.8%;
+                margin-left: -2.4%;
+                margin-top: 1%;
+                border-top: 1px solid #70707050;
+                border-bottom: 0;
+                border-inline: 0;
+            }
+            h3{
+                padding-top: 2%;
+                
+            }
+            h4{
+                padding-bottom: 3%;
+            }
+        }
+        &:first-of-type{
+            padding-top: 7%;
+            figcaption{
+                padding-top: 14%;
+            }
+        }
+    }
+   }
+}
+}
