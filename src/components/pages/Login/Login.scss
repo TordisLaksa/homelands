@@ -86,31 +86,80 @@ main{
             display: grid;
             height: fit-content;
             grid-template-rows: 1fr, 1fr;
-            gap: 30%;
+            gap: 20%;
             
             #LogOut{
                 @include TinyPadding;
                 p{
                     padding-bottom: 5%;
+                    font-size: 1.1rem;
                 }
                 button{
+                    cursor: pointer;
                     background-color: $headandfoot;
                     color: white;
-                    width: 20%;
-                    padding: 2%;
+                    width: 35%;
+                    padding: 1%;
+                    font-size: .9rem;
                     @include BorderRadiusButtons;
+                    &:hover{
+                        background-color: $highlight;
+                        border: 2px solid rgba(0, 0, 0, 0);
+                    }
                 }
             }
             .LoggedIn{
                 form{
                     @include TinyPadding;
                     fieldset{
+                        border: 1px solid #70707080;
+                        @include BorderRadiusButtons;
                         padding: 5%;
                         legend{
                             padding-left: 2%;
                             width: 58%;
                             h3 {
                                 font-size: 1.5rem;
+                            }
+                        }
+                        .CommentDiv{
+                            padding-bottom: 3.5%;
+                            input{
+                                font-size: .9rem;
+                                width: 80%;
+                                padding: 2%;
+                                border: 1px solid #70707080;
+                                @include BorderRadiusButtons;
+                            }
+                            textarea{
+                                font-size: .9rem;
+                                padding: 2%;
+                                height: 5vw;
+                                width: 80%;
+                                resize: none;
+                                border: 1px solid #70707080;
+                                @include BorderRadiusButtons;
+                            }
+                            span{
+                                color: #e30404;
+                            }
+                        }
+                        .CommentDivButtons{
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            gap: 5%;
+                            width: 80%;
+                            button{
+                                cursor: pointer;
+                                font-size: .9rem;
+                                padding: 2.5%;
+                                background-color: $headandfoot;
+                                color: $background;
+                                @include BorderRadiusButtons;
+                                &:hover{
+                                    background-color: $highlight;
+                                    border: 2px solid rgba(0, 0, 0, 0);
+                                }
                             }
                         }
                     }

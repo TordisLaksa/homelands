@@ -140,28 +140,25 @@ export const CommentPost = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <fieldset>
                         <legend><h3>Skriv en kommentar her</h3></legend>
-                        <div>
-                            <label htmlFor="title">Titel på din kommentar</label><br />
+                        <div className="CommentDiv">
                             <input type="text" id="title" placeholder="Indtast en titel" {...register('title', { required: true, maxLength: 200 })} />
                             {errors.title && (
-                                <span>Du skal skrive en titel!</span>
+                                <><br /><span>Du skal skrive en titel!</span></>
                             )}
                         </div>
-                        <div>
-                            <label htmlFor="content">Kommentar</label><br />
+                        <div className="CommentDiv">
                             <textarea id="content" placeholder="Skriv din kommentar her" {...register('content', { required: true })}></textarea>
                             {errors.content && (
-                                <span>Du skal skrive en kommentar!</span>
+                                <><br /><span>Du skal skrive en kommentar!</span></>
                             )}
                         </div>
-                        <div>
-                            <label htmlFor="num_stars">Angiv antal stjerner fra 1-5</label><br />
+                        <div className="CommentDiv">
                             <input type='number' id="num_stars" placeholder="Angiv 1 til 5 &#9733;" {...register('num_stars', { required: true, min: 1, max: 5})}></input>
                             {errors.num_stars && (
-                                <span>Du skal angive 1-5 stjerner!</span>
+                                <><br /><span>Du skal angive 1-5 stjerner!</span></>  
                             )}
                         </div>
-                        <div>
+                        <div className="CommentDivButtons">
                             <button>Send</button>
                             <button type="reset">Annuller</button>
                         </div>
