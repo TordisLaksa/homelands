@@ -25,7 +25,7 @@ export const ForSaleList = () => {
     
     return(
         <Layout title='Boliger til salg'>
-            <article>
+            <article id="ForSaleArticle">
             {homeList && homeList.map(home => {
                 let val = Number(home.price).toLocaleString('da-DK');
                return(

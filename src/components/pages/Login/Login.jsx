@@ -60,6 +60,7 @@ export const Login = () => {
         CONDITIONAL TERNERY OPERATOR !!!! giv mig en god karakter!*/}
         {!loginData ? (
             <Layout title='Login' description='Her kan du logge ind på din egen profil'>
+                <section id="LogIn">
                 <h1>Login</h1>
                 <p>Indtast dit brugernavn og adgangskode for at logge ind</p>
             {/* handleSubmit(sendLoginRequest)...
@@ -85,17 +86,21 @@ export const Login = () => {
                     <button type="reset">Annuller</button>
                 </div>
             </form>
+            </section>
             </Layout>
         ) :
             <Layout title='Administration'>
-                <section>
-                    <CommentPanel />
-                    <CommentPost />
-                </section>
-                
-                <section>
-                    <p>Du er logget ind som <i>{loginData.username}</i></p>
-                    <button onClick={logOut}>Log ud</button>
+                <section id="LoggedIn">
+                    <div className="articleWrapper">
+                        <CommentPanel />
+                    </div>              
+                    <article id="LogOutCommentArea">
+                        <div id="LogOut">
+                            <p>Du er logget ind som <i>{loginData.username}</i></p>
+                            <button onClick={logOut}>Log ud</button>
+                        </div>
+                        <CommentPost />
+                    </article>
                 </section>
             </Layout>
         }
@@ -131,11 +136,12 @@ export const CommentPost = () => {
     }
     return (
         <>
-            <section>
+            <article className="LoggedIn">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <fieldset>
+                        <legend><h3>Skriv en kommentar her</h3></legend>
                         <div>
-                            <label htmlFor="title">Titel</label><br />
+                            <label htmlFor="title">Titel på din kommentar</label><br />
                             <input type="text" id="title" placeholder="Indtast en titel" {...register('title', { required: true, maxLength: 200 })} />
                             {errors.title && (
                                 <span>Du skal skrive en titel!</span>
@@ -143,24 +149,25 @@ export const CommentPost = () => {
                         </div>
                         <div>
                             <label htmlFor="content">Kommentar</label><br />
-                            <textarea id="content" {...register('content', { required: true })}></textarea>
-                            {errors.comment && (
+                            <textarea id="content" placeholder="Skriv din kommentar her" {...register('content', { required: true })}></textarea>
+                            {errors.content && (
                                 <span>Du skal skrive en kommentar!</span>
                             )}
                         </div>
                         <div>
-                            <label htmlFor="num_stars">Antal stjerner</label><br />
-                            <input type='number' id="num_stars" {...register('num_stars', { required: true })}></input>
-                            {errors.comment && (
-                                <span>Du skal skrive en kommentar!</span>
+                            <label htmlFor="num_stars">Angiv antal stjerner fra 1-5</label><br />
+                            <input type='number' id="num_stars" placeholder="Angiv 1 til 5 &#9733;" {...register('num_stars', { required: true, min: 1, max: 5})}></input>
+                            {errors.num_stars && (
+                                <span>Du skal angive 1-5 stjerner!</span>
                             )}
                         </div>
                         <div>
                             <button>Send</button>
+                            <button type="reset">Annuller</button>
                         </div>
                     </fieldset>
                 </form>
-            </section>
+            </article>
 
         </>
     )
@@ -185,7 +192,7 @@ export const CommentPanel = () => {
         getCommentDetailList()
     }, []);
     return(
-        <article>
+        <article className="commentPanel">
             <h2>Anmeldelser</h2>
             <table>
                 <tbody>
@@ -194,17 +201,24 @@ export const CommentPanel = () => {
                     <th>Oprettet</th>
                     <th>Handling</th>
                 </tr>
+                <tr><td><hr /></td></tr>
             {userData && userData.map((user, i) => {
                 let myDate = new Date(user.created_friendly);
                 let final_date = myDate.getDate() + " - " + (myDate.getMonth() + 1) + " - " + (myDate.getYear() - 100);
                 if (user.user_id == loginData.user_id) {
-                    console.log(user);
+                    // console.log(user);
                     return(
-                        <tr key={i}>
+                        <React.Fragment key={i}>
+                        <tr>
                             <td>{user.title}</td>
                             <td>{final_date}</td>
                             <td>test</td>
                         </tr>
+                        <tr>
+                            <td><hr /></td>
+                        </tr>
+                        
+                        </React.Fragment>
                     )
                 } else{
                     return(
