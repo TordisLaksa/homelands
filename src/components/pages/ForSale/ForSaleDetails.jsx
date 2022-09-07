@@ -77,6 +77,7 @@ export const ForSaleDetails = () => {
                     </figcaption>
                     <figcaption id='DetailSpecificInfo'>
                         <article>
+                            {/* 2 p tags grid repeat (2, 1fr) gap 1% */}
                             <p>Sagsnr. {homeData.id}</p>
                             <p>Boligarea: {homeData.floor_space}</p>
                             <p>Grundareal: {homeData.ground_space}</p>
