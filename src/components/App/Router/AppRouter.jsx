@@ -4,6 +4,8 @@ import { ForSaleDetails } from '../../pages/ForSale/ForSaleDetails';
 import { Home } from '../../pages/Home/Home'
 import { Login } from "../../pages/Login/Login";
 import { NoPage } from '../../pages/NoPage';
+import { PutComment } from '../../pages/Login/PutComment';
+
 
 
 export const AppRouter = () => {
@@ -14,7 +16,8 @@ export const AppRouter = () => {
                 <Route index element={<ForSaleList />}></Route>
                 <Route path=':home_id' element={<ForSaleDetails />}></Route>
             </Route>
-            <Route path='/login' element={<Login />} />
+            <Route path='/login'element={<Login />} />
+            <Route path='/putcomment/:id' element={<PutComment />} />
             <Route path='*' element={<NoPage />} />
         </Routes>
     )

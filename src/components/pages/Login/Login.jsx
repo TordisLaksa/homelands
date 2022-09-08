@@ -5,6 +5,8 @@ import './Login.scss';
 import { Layout } from "../../App/Layout/Layout";
 import { authHeader } from "../../../AppService/AuthHeader";
 import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+
 
 export const Login = () => {
     //useForm
@@ -101,7 +103,6 @@ export const Login = () => {
                         </div>
                         <CommentPost />
                     </article>
-                    {/* <PutComment /> */}
                 </section>
             </Layout>
         }
@@ -173,11 +174,12 @@ export const CommentPost = () => {
     )
 }
 
+
 export const CommentPanel = () => {
     const { loginData, setLoginData } = useAuth();
     const [ userData, setUserData ] = useState();
-    
-    
+    const { id } = useParams(0);
+        
     useEffect(() => {
         const getCommentDetailList = async () => {
             try {
@@ -190,7 +192,7 @@ export const CommentPanel = () => {
             }
         }
         getCommentDetailList()
-    }, []);
+    }, [userData]);
     return(
         <article className="commentPanel">
             <h2>Anmeldelser</h2>
@@ -206,14 +208,15 @@ export const CommentPanel = () => {
                 let myDate = new Date(user.created_friendly);
                 let final_date = myDate.getDate() + " - " + (myDate.getMonth() + 1) + " - " + (myDate.getYear() - 100);
                 if (user.user_id == loginData.user_id) {
-                    // console.log(user);
+                 
                     return(
                         <React.Fragment key={i}>
                         <tr>
                             <td>{user.title}</td>
                             <td>{final_date}</td>
                             <td>
-                            <PutComment data={user} />
+                                <Link to={`/putcomment/${user.id}`}><button>Edit</button></Link>
+                                <CommentDelete id={user.id} />
                             </td>
                         </tr>
                         <tr>
@@ -233,72 +236,28 @@ export const CommentPanel = () => {
             </table>
         </article>
     )
-} 
+}
 
-
-
-export const PutComment = props => {
+const CommentDelete = ( props ) =>{
     const { register, handleSubmit, formState: { errors } } = useForm();
-    
+    const { id } = useParams(0);
+
     const onSubmit = async () => {
-        const formData = new URLSearchParams();
-        console.log(props.data);
-        
-        formData.append('id', props.data.id)
-        props.data.title = 'Putteline';
-        formData.append('title', props.data.title);
-        formData.append('content', props.data.content);
-        formData.append('num_stars', props.data.num_stars);
-        formData.append('active', 1);
-
-        try {
-            const result = await axios.put(`https://api.mediehuset.net/homelands/reviews`, formData,{ 
-                headers: authHeader()
-            });
-            if (result) {
-                console.log(234);
+        console.log('we are in!');
+            try {
+                const response = await axios.delete(`https://api.mediehuset.net/homelands/reviews/${props.id}`, {
+                    headers: authHeader()
+                });
+                if (response) {
+                   console.log('deleted');
+                }
+            } catch (error) {
+                console.log('error!!');
             }
-        } catch (error) {
-            console.log('fuck');
-
-        }
-    }
+    };
     
-    const PutField = () => {
-        return(
-            <>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                <fieldset>
-                    <div className="PutCommentDiv">
-                        <input type="text" id="title" placeholder="Indtast din nye titel" {...register('title', { required: true, maxLength: 200 })} />
-                        {errors.title && (
-                            <><br /><span>Skriv din nye titel!</span></>
-                        )} 
-                    </div>
-                    <div className="PutCommentDiv">
-                        <textarea id="content" placeholder="Skriv din din nye kommentar her" {...register('content', { required: true })}></textarea>
-                        {errors.content && (
-                            <><br /><span>Skriv din nye kommentar!</span></>
-                        )}
-                    </div>
-                    <div className="PutCommentDiv">
-                        <input type='number' id="num_stars" placeholder="Angiv 1 til 5 &#9733;" {...register('num_stars', { required: true, min: 1, max: 5 })}></input>
-                        {errors.num_stars && (
-                            <><br /><span>Du skal angive 1-5 stjerner!</span></>
-                        )}
-                    </div>
-                    <div className="PutCommentDivButtons">
-                        <button>Gem</button>
-                        <button type="reset">Annuller</button>
-                    </div>
-                </fieldset>
-            </form>
-            </>
-        )
-    }
-        return(
-            <button onClick={handleSubmit(onSubmit)}>
-                Ændre i kommentar
-            </button>
+    
+    return(
+        <button onClick={onSubmit}>Slet kommentar</button>
     )
 }
