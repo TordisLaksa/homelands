@@ -1,12 +1,25 @@
 @import '../../../Assets/SCSS/vars.scss';
 
 .CommentCarousel{
-    width: 99vw;
+    width: 98vw;
     background-color: $secondary;
-    margin-left: -4.9vw;
+    margin-left: -4.3vw;
     padding: 2%;
-    article{
-        text-align: center;
+    margin-bottom: 3%;
+    .CommentArticle{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 4vw;
+        h3{
+            font-size: 1.3rem;
+        }
+        p{
+            padding-block: .3%;
+            &:first-of-type{
+                font-size: 1.1rem;
+            }
+        }
     }
     button{
         display: none;

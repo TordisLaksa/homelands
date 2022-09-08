@@ -28,7 +28,7 @@ export const Home = () => {
             <HeroCarousel />
             <Card3Images />
             <section id="ReadyForComments">
-                <h2>Det siger kunderne:</h2>
+                <h2>Det siger kunderne</h2>
                 <Comment />
             </section>
             <section id="Employee">

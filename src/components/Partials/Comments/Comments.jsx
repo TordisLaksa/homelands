@@ -27,9 +27,9 @@ export const Comment = () => {
                 let myDate = new Date(comment.created_friendly);
                 let final_date = myDate.getDate() + " - " + (myDate.getMonth() + 1) + " - " + (myDate.getFullYear());
                 return(
-                    <article key={comment.id}>
+                    <article key={comment.id} className='CommentArticle'>
                         <h3>{comment.title}</h3>
-                        <h4>{comment.content}</h4>
+                        <p>{comment.content}</p>
                         <p>{comment.user.firstname} {comment.user.lastname}, {final_date}</p>
                     </article>
                 )
