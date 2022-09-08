@@ -1,0 +1,14 @@
+@import '../../../Assets/SCSS/vars.scss';
+
+.CommentCarousel{
+    width: 99vw;
+    background-color: $secondary;
+    margin-left: -4.9vw;
+    padding: 2%;
+    article{
+        text-align: center;
+    }
+    button{
+        display: none;
+    }
+}

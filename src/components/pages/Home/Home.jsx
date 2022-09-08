@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import { Layout } from "../../App/Layout/Layout"
 import Carousel from 'react-material-ui-carousel';
 import './Home.scss';
+import { Comment } from "../../Partials/Comments/Comments";
 
 export const Home = () => {
     const [ sliderImg, setSliderImg ] = useState([]);
@@ -28,6 +29,7 @@ export const Home = () => {
             <Card3Images />
             <section id="ReadyForComments">
                 <h2>Det siger kunderne:</h2>
+                <Comment />
             </section>
             <section id="Employee">
                 <h2>Mød vores ansatte</h2>
