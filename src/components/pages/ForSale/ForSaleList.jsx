@@ -27,6 +27,7 @@ export const ForSaleList = () => {
         <Layout title='Boliger til salg'>
             <article id="ForSaleArticle">
             {homeList && homeList.map(home => {
+                //HUSK AT FORKLARE DEN HER!
                 let val = Number(home.price).toLocaleString('da-DK');
                return(
                    <figure key={home.id} className='card'>
@@ -44,7 +45,7 @@ export const ForSaleList = () => {
                                     <p className={home.energy_label_name}>{home.energy_label_name} </p>
                                     <p>{home.num_rooms} værelser, {home.floor_space}m2</p>
                                 </div>
-                                <p>{val} DKK</p>
+                                <p>{val} kr.</p>
                             </article>
                         </figcaption>
                     </figure>

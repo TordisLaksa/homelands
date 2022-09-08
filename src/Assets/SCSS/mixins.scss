@@ -20,14 +20,6 @@
     margin: 0 auto;
 }
 
-@mixin flex {
-    display: flex;
-}
-
-@mixin grid {
-    display: grid;
-}
-
 @mixin border {
     border: solid 1px #fff;
 }

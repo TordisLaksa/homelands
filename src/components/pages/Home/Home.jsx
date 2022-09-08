@@ -117,7 +117,7 @@ export const Card3Images = () => {
                         <div>
                             <div className={item.energy_label_name}><p>{item.energy_label_name}</p></div>
                             <p>{item.num_rooms} værelser, {item.floor_space} m2</p>
-                            <p>{val} DKK</p>
+                            <p>{val} kr.</p>
                         </div>
                     </figcaption>
                 </figure>

@@ -101,6 +101,7 @@ export const Login = () => {
                         </div>
                         <CommentPost />
                     </article>
+                    {/* <PutComment /> */}
                 </section>
             </Layout>
         }
@@ -126,7 +127,8 @@ export const CommentPost = () => {
                 headers: authHeader()
             });
             if (result) {
-                console.log('Ok')
+                console.log('Ok post')
+                console.log(data);
             }
         } catch (error) {
             console.log('fuck');
@@ -134,6 +136,7 @@ export const CommentPost = () => {
         }
 
     }
+
     return (
         <>
             <article className="LoggedIn">
@@ -209,7 +212,9 @@ export const CommentPanel = () => {
                         <tr>
                             <td>{user.title}</td>
                             <td>{final_date}</td>
-                            <td>test</td>
+                            <td>
+                            <PutComment data={user} />
+                            </td>
                         </tr>
                         <tr>
                             <td><hr /></td>
@@ -229,3 +234,71 @@ export const CommentPanel = () => {
         </article>
     )
 } 
+
+
+
+export const PutComment = props => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    
+    const onSubmit = async () => {
+        const formData = new URLSearchParams();
+        console.log(props.data);
+        
+        formData.append('id', props.data.id)
+        props.data.title = 'Putteline';
+        formData.append('title', props.data.title);
+        formData.append('content', props.data.content);
+        formData.append('num_stars', props.data.num_stars);
+        formData.append('active', 1);
+
+        try {
+            const result = await axios.put(`https://api.mediehuset.net/homelands/reviews`, formData,{ 
+                headers: authHeader()
+            });
+            if (result) {
+                console.log(234);
+            }
+        } catch (error) {
+            console.log('fuck');
+
+        }
+    }
+    
+    const PutField = () => {
+        return(
+            <>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                <fieldset>
+                    <div className="PutCommentDiv">
+                        <input type="text" id="title" placeholder="Indtast din nye titel" {...register('title', { required: true, maxLength: 200 })} />
+                        {errors.title && (
+                            <><br /><span>Skriv din nye titel!</span></>
+                        )} 
+                    </div>
+                    <div className="PutCommentDiv">
+                        <textarea id="content" placeholder="Skriv din din nye kommentar her" {...register('content', { required: true })}></textarea>
+                        {errors.content && (
+                            <><br /><span>Skriv din nye kommentar!</span></>
+                        )}
+                    </div>
+                    <div className="PutCommentDiv">
+                        <input type='number' id="num_stars" placeholder="Angiv 1 til 5 &#9733;" {...register('num_stars', { required: true, min: 1, max: 5 })}></input>
+                        {errors.num_stars && (
+                            <><br /><span>Du skal angive 1-5 stjerner!</span></>
+                        )}
+                    </div>
+                    <div className="PutCommentDivButtons">
+                        <button>Gem</button>
+                        <button type="reset">Annuller</button>
+                    </div>
+                </fieldset>
+            </form>
+            </>
+        )
+    }
+        return(
+            <button onClick={handleSubmit(onSubmit)}>
+                Ændre i kommentar
+            </button>
+    )
+}

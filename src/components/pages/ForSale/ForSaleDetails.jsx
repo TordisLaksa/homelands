@@ -70,17 +70,17 @@ export const ForSaleDetails = () => {
                                 })}
                         </article>
                         <article>
-                            <h5>Kontantpris: <span className="biggertxt"> {homeData.price} </span> </h5>
-                            <h5>Udbetaling: {homeData.payout}</h5>
-                            <h5>Ejerudgift per måned: {homeData.cost}</h5>
+                            <h5>Kontantpris: <span className="biggertxt"> {homeData.price} kr. </span> </h5>
+                            <h5>Udbetaling: {homeData.payout} kr.</h5>
+                            <h5>Ejerudgift per måned: {homeData.cost} kr.</h5>
                         </article>
                     </figcaption>
                     <figcaption id='DetailSpecificInfo'>
                         <article>
                             {/* 2 p tags grid repeat (2, 1fr) gap 1% */}
                             <p>Sagsnr. {homeData.id}</p>
-                            <p>Boligarea: {homeData.floor_space}</p>
-                            <p>Grundareal: {homeData.ground_space}</p>
+                            <p>Boligarea: {homeData.floor_space}m2</p>
+                            <p>Grundareal: {homeData.ground_space}m2</p>
                             <p>Antal rum: {homeData.num_rooms}</p>
                             <p>Antal plan: {homeData.num_floors}</p>
                         </article>
@@ -88,15 +88,15 @@ export const ForSaleDetails = () => {
                             <p>Kælder: {homeData.basement_space}</p>
                             <p>Byggeår: {homeData.year_construction}</p>
                             <p>Ombygget: {homeData.year_rebuilt }</p>
-                            <p>Energimærle: {homeData.num_rooms}</p>
+                            <p>Energimærke: {homeData.num_rooms}</p>
                             <p>Liggetid: {days(todaySDate)} dage</p>
                         </article>
                         <article>
-                            <p>Kontantpris: {homeData.price}</p>
-                            <p>Udbetaling: {homeData.payout}</p>
-                            <p>Brutto ex. ejerudgift: {homeData.gross}</p>
-                            <p>Netto ex. ejerudgift: {homeData.net}</p>
-                            <p>Ejerudgift: {homeData.cost}</p>
+                            <p>Kontantpris: {homeData.price} kr.</p>
+                            <p>Udbetaling: {homeData.payout} kr.</p>
+                            <p>Brutto ex. ejerudgift: {homeData.gross} kr.</p>
+                            <p>Netto ex. ejerudgift: {homeData.net} kr.</p>
+                            <p>Ejerudgift: {homeData.cost} kr.</p>
                         </article>
                     </figcaption>
                     <figcaption id='DetailContact'>
