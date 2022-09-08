@@ -8,7 +8,7 @@ main{
         position: absolute;
         top: -5.5vw;
         left: 0;
-        width: 99vw;
+        width: 99.1vw;
         height: 30vw;
         z-index: -30;
         .css-1m9128y{
@@ -32,7 +32,7 @@ main{
     
 #cardSection{
     position: absolute;
-    top: 18vw;
+    top: 17vw;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3%;
@@ -41,6 +41,7 @@ main{
     
     .Cards{
         background-color: rgba(255, 255, 255, 0.85);
+        margin-left: 5%;
         padding: 5%;
         z-index: 4;
         border: 1px solid #918e8e42;
@@ -66,11 +67,13 @@ main{
     h2{
         font-size: 2rem;
         margin-bottom: 3%;
-        // margin-left: 3vw;
+        margin-left: -4vw;
     }
+   
 }
 
 #Employee{
+    margin-left: -4.5vw;
     padding-top: 1%;
     h2{
         text-align: center;
@@ -84,6 +87,7 @@ main{
     gap: 3%;
     width: 80%;
     margin: auto;
+    
     
     .EmployeeCard{
         padding-inline: 2%;
@@ -121,4 +125,74 @@ main{
     }
    }
 }
+}
+
+
+
+//COLOR MODS
+$bg-red: #c66;
+$bg-yellow: #fc6;
+$bg-green: #9c9;
+
+$bg-blue: #699;
+
+//BREAKPOINTS
+$x-large: 1300px;
+$large: 1300px;
+$tablet: 980px;
+$mobile: 580px;
+
+
+@media screen and (max-width: $large) {
+    main{
+        .Carousel {
+            position: absolute;
+            top: -5.1vw;
+        }    
+        #cardSection{
+        position: absolute;
+        top: 17vw;
+        gap: 1%;
+        width: 100%;
+        padding-inline: 2%;
+        .Cards{
+            margin-left: 5%;
+            padding: 5%;
+            height: 30vw;
+        }
+        }
+        #ReadyForComments {
+            margin-top: 55vw;
+        }
+        #Employee{
+            #EmployeeCardContainer{
+                gap: 2%;
+                width: 100%;
+                padding-inline: 2%;
+                .EmployeeCard{
+                    figcaption{
+                        text-align: center;
+                        h3 {
+                            padding-top: 5%;
+                        }
+
+                        h4 {
+                            padding-bottom: 5%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+  }
+@media screen and (max-width: $tablet) {
+  main{
+    // background-color: $bg-yellow;     
+  }
+}
+@media screen and (max-width: $mobile){
+    main{
+    background-color: $bg-green;  
+
+    }
 }

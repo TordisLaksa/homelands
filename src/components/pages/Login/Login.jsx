@@ -258,6 +258,9 @@ const CommentDelete = ( props ) =>{
     
     
     return(
+        <>
         <button onClick={onSubmit}>Slet kommentar</button>
+        <p></p>
+        </>
     )
 }

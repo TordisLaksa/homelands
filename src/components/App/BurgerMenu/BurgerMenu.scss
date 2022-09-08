@@ -1,30 +1,38 @@
 @import '../../../Assets//SCSS/vars.scss';
 @import "../../../Assets/SCSS/mixins.scss";
 
+
 .burgerMenu{
-    position: absolute;
-    width: 5vw;
-    height: 10vw;
-    right: 1vw;
-    
-    @media (width > 1199px){
+    @media (width > 1299px){
         display: none;
     }
+    
+    position: absolute;
+    top: 0;
+    left: 94vw;
+    height: 1vw;
+    width: 5vw;
+    z-index: 5;
+    //gemmer x når menuen ikke er åben
     .burgerMenuClose{
         display: none;
     }
     
-    .burgerMenuHome {
+    .burgerMenuHome{
         position: absolute;
-        width: 3.5vw;
-        height: 7vw;
-        color: $headandfoot ;
-        background-color: rgba(255, 255, 255, 0);
-        transition: .2s ease-in-out;
+        padding-bottom: 1vw;
+        height: 6.5vw;
+        width: 3vw;
+        color: $background;
+        transition: .9s ease-in-out;
     }
 }
+
 .burgerMenuActive{
+    // background-color: red;
     position: absolute;
+    //MÅSKE DEN HER
+    left: 94vw;
     width: 4vw;
     height: 5vw;
     right: 1.8vw;
@@ -33,11 +41,10 @@
     }
     .burgerMenuClose{
         position: absolute;
-        width: 3.5vw;
-        height: 7vw;
-        color: white;
-        background-color: rgba(255, 255, 255, 0);
-        transition: .2s ease-in-out;
+        width: 3vw;
+        height: 6.5vw;
+        color: $background;
+        transition: .9s ease-in-out;
         z-index: 2;
     }
 }
@@ -46,18 +53,102 @@
     display: none;
 }
 
-.activeMenu {
-    display: flex;
-    flex-direction: column;
+.activeMenu{
+    
     position: absolute;
-    list-style: none;
-    top: 5vh;
-    width: 100%;
-    padding: 0 0 1.6vw 1.8;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     background-color: $headandfoot;
-    .navigationLinks{
-        text-decoration: none;
-        color: $background;
-        font-size: 1em;
+    top: 0;
+    left: -5vw;
+    width: 100%;
+    height: 6vw;
+    padding: 1.6vw 0 1.8vw 1vw;
+    z-index: 5;
+    
+    li{
+        list-style: none;
+        padding-inline: 2vw;
+        .navigationLinks{
+            color: $background;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+    }
+}
+$large: 1300px;
+$tablet: 980px;
+$mobile: 580px;
+
+@media screen and (max-width: $large) {
+    header {
+        .burgerMenu {
+            left: 91vw;
+            top: 1vw;
+
+            .burgerMenuHome {
+                padding-bottom: 1vw;
+                height: 6vw;
+                width: 4.5vw;
+            }
+        }
+
+        .burgerMenuActive {
+            height: 7vw;
+            width: 4.5vw;
+            left: 91.5vw;
+
+            .burgerMenuClose {
+                width: 4.5vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    header {
+        .burgerMenu {
+            left: 91vw;
+            top: 1vw;
+
+            .burgerMenuHome {
+                padding-bottom: 1vw;
+                height: 6vw;
+                width: 4.5vw;
+            }
+        }
+
+        .burgerMenuActive {
+            height: 7vw;
+            width: 4.5vw;
+            left: 91.5vw;
+
+            .burgerMenuClose {
+                width: 4.5vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mobile){
+    header{
+        .burgerMenu{
+            left: 91vw;
+            top: 1vw;
+            .burgerMenuHome {
+                padding-bottom: 1vw;
+                height: 6vw;
+                width: 4.5vw;
+            }
+        }
+        .burgerMenuActive{
+            height: 7vw;
+            width: 4.5vw;
+            left: 91.5vw;
+            .burgerMenuClose{
+                width: 4.5vw;
+            }
+        }
     }
 }
