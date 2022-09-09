@@ -85,13 +85,6 @@ main{
 }
 
 
-//BREAKPOINTS
-
-$large: 1300px;
-$tablet: 980px;
-$mobile: 580px;
-
-
 @media screen and (max-width: $large) {
     body{
       #ForSaleArticle{

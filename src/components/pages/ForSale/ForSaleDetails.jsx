@@ -48,7 +48,7 @@ export const ForSaleDetails = () => {
             
         {homeData ? (
             <>
-            <section>
+            <section id="ForSaleSection">
                 <figure>
                     <img id='TopImg' src={homeData.images[0].filename.large} alt={homeData.images[0].description} />
                     <figcaption id="DetailHomeInfo">
