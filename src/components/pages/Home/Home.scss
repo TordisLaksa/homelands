@@ -127,15 +127,6 @@ main{
 }
 }
 
-
-
-//COLOR MODS
-$bg-red: #c66;
-$bg-yellow: #fc6;
-$bg-green: #9c9;
-
-$bg-blue: #699;
-
 //BREAKPOINTS
 $x-large: 1300px;
 $large: 1300px;
@@ -148,6 +139,7 @@ $mobile: 580px;
         .Carousel {
             position: absolute;
             top: -5.1vw;
+            width: 98.7vw;
         }    
         #cardSection{
         position: absolute;
@@ -187,12 +179,56 @@ $mobile: 580px;
   }
 @media screen and (max-width: $tablet) {
   main{
-    // background-color: $bg-yellow;     
-  }
+      .Carousel{
+          width: 100%;
+          top: -1vw;
+        }
+        #cardSection{
+            top: 20vw;
+            .Cards{
+                height: 33vw;
+            }
+        }
+        #ReadyForComments{
+            margin-top: 60vw;
+        }
+    }
 }
 @media screen and (max-width: $mobile){
     main{
-    background-color: $bg-green;  
-
+        position: relative;
+    .Carousel{
+        height: 50vw;
+    }
+    #cardSection{
+        margin-top: 10%;
+        height: fit-content;
+        display: grid;
+        grid-template-columns: auto;
+        gap: 0;
+        .Cards{
+            height: 80vw;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    #ReadyForComments{
+        margin-top: 340%;
+        h2{
+            padding-bottom: 5%;
+        }
+    }
+    #Employee{
+        margin: auto;
+        h2{
+            font-size: 2rem;
+        }
+        #EmployeeCardContainer{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    
     }
 }

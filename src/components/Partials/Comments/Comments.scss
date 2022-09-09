@@ -1,9 +1,9 @@
 @import '../../../Assets/SCSS/vars.scss';
 
 .CommentCarousel{
-    width: 98vw;
+    width: 99vw;
     background-color: $secondary;
-    margin-left: -4.3vw;
+    margin-left: -4.9vw;
     padding: 2%;
     margin-bottom: 3%;
     .CommentArticle{
@@ -22,5 +22,35 @@
     }
     button{
         display: none;
+    }
+}
+
+
+//BREAKPOINTS
+$large: 1300px;
+$tablet: 980px;
+$mobile: 580px;
+
+
+@media screen and (max-width: $large) {
+    body{
+       
+    .CommentCarousel{
+        width: 98.6vw;
+    }
+    }
+  }
+@media screen and (max-width: $tablet) {
+  body{
+    .CommentCarousel{
+        width: 98.3vw;
+    }
+  }
+}
+@media screen and (max-width: $mobile){
+    body{
+        .CommentCarousel {
+            width: 97vw;
+        }
     }
 }

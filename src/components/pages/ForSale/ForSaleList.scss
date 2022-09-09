@@ -1,4 +1,5 @@
 @import '../../../Assets/SCSS/mixins.scss';
+@import '../../../Assets/SCSS/vars.scss';
 main{
     display: grid;
     grid-template-columns: auto;
@@ -22,8 +23,11 @@ main{
             margin-inline: 5%;
             border: 1px solid #707070;
             padding: 1vw;
-            img{
-                width: 100%;
+            @include BorderRadiusButtons;
+            a{
+                img{
+                    width: 100%;
+                }
             }
             figcaption{
                 display: grid;
@@ -35,40 +39,116 @@ main{
                 }
                 .EconomyInfo{
                     display: grid;
-                    grid-template-columns: 2fr 1fr;
-                    div{
+                    grid-template-columns: 1fr 1fr;
+                    gap: 5%;
+                    .EconomyWrapper{
                         display: flex;
-                        position: relative;
-                        @include BorderRadiusButtons;
-                        width: 110%;
-                        height: 40%;
-                        p{  
-                            &:first-child{
-                                position: absolute;
-                                width: 5%;
-                                left: 0;
-                                top: -.2vw;
-                            }
-                            &:last-child{
-                                margin-left: 1.5vw;
+                        div{
+                            width: 1.5vw;
+                            height: 1.5vw;
+                            display: flex;
+                            justify-content: center;
+
+                            p{  
+                                padding-top: 6%;
+                                
                             }
                         }
                         .A, .B{
-                            @include TinyPadding;
+                            // @include TinyPadding;
                             background-color: #14C451;
                         }
                         .C, .D, .E{
-                            @include TinyPadding;
+                            // @include TinyPadding;
                             background-color: #f3f306;
                         }
                         .F, .G, .H{
-                            @include TinyPadding;
-                            background-color: #c41414;
+                            // @include TinyPadding;
+                            background-color: #ea2727c4;
+                        }
+                        p{
+                        &:first-of-type {
+                                margin-top: 1%;
+                                margin-left: 1%;
+                            }
                         }
                     }
                     p{
                         display: flex;
                         justify-content: flex-end;
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//BREAKPOINTS
+
+$large: 1300px;
+$tablet: 980px;
+$mobile: 580px;
+
+
+@media screen and (max-width: $large) {
+    body{
+      #ForSaleArticle{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .card{
+            figcaption{
+                .EconomyInfo{
+                    .EconomyWrapper{
+                        div{
+                            height: 2vw;
+                            width: 2vw;
+                        }
+                    }
+                }
+            }
+        }
+      }
+    }
+  }
+@media screen and (max-width: $tablet) {
+  body{
+    #ForSaleArticle{
+        .card{
+            padding: 4%;
+            figcaption{
+                .EconomyInfo{
+                    display: grid;
+                    grid-template-columns: 2fr 1fr;
+                    .EconomyWrapper{
+                        div{
+                            height: 3vw;
+                            width: 3vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+  }
+}
+@media screen and (max-width: $mobile){
+    body{
+        #ForSaleArticle{
+            grid-template-columns: 1fr;
+            gap: 1%;
+            //sidste figure indgår ikke i main? 
+            margin-bottom: 70vw;
+            .card{
+                figcaption{
+                    .EconomyInfo{
+                        .EconomyWrapper{
+                            div{
+                                height: 4vw;
+                                width: 4vw;
+                            }
+                        }
                     }
                 }
             }

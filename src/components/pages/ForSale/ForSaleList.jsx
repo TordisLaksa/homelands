@@ -41,8 +41,8 @@ export const ForSaleList = () => {
                             <h5>{home.type}</h5>
                             </article>
                             <article className="EconomyInfo">
-                                <div>
-                                    <p className={home.energy_label_name}>{home.energy_label_name} </p>
+                                <div className="EconomyWrapper">
+                                    <div className={home.energy_label_name}><p>{home.energy_label_name} </p></div>
                                     <p>{home.num_rooms} værelser, {home.floor_space}m2</p>
                                 </div>
                                 <p>{val} kr.</p>

@@ -13,6 +13,7 @@ footer{
     padding-inline: 5%;
     padding-bottom: 1%;
     z-index: 50;
+
     #FooterContact{
         display: grid;
         grid-template-columns: 1fr 0.5fr 1fr;
@@ -71,7 +72,6 @@ $mobile: 580px;
         height: 8vw;
         display: grid;
         grid-template-columns: 3fr 1fr;
-        padding-bottom: 9%;
         gap: 0;
         padding-bottom: 1%;
         #FooterContact{
@@ -107,7 +107,7 @@ $mobile: 580px;
 }
 @media screen and (max-width: $mobile){
     body{
-    background-color: $bg-green;
+
     footer{
         height: 20vw;
         display: grid;
