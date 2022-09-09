@@ -57,3 +57,85 @@ footer{
         }
     }
 }
+
+//BREAKPOINTS
+$x-large: 1300px;
+$large: 1300px;
+$tablet: 980px;
+$mobile: 580px;
+
+
+@media screen and (max-width: $large) {
+    body{
+      footer{
+        height: 8vw;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        padding-bottom: 9%;
+        gap: 0;
+        padding-bottom: 1%;
+        #FooterContact{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            img{
+                width: 25%;
+            }
+        }
+        #FooterSocialMedia{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2%;
+            margin-left: 50%;
+            a{
+                // padding-right: 1%;
+                img{
+                    width: 5vw;
+                }
+            }
+        }
+      }
+    }
+  }
+@media screen and (max-width: $tablet) {
+  body{
+    footer {
+            height: 9vw;
+        }
+    }
+}
+@media screen and (max-width: $mobile){
+    body{
+    background-color: $bg-green;
+    footer{
+        height: 20vw;
+        display: grid;
+        grid-template-columns: 2fr .5fr;
+        gap: 0;
+        padding-inline: 1%;
+        #FooterContact{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 4%;
+            img{
+                width: 20vw;
+                align-self: center;
+            }
+            div{
+                p, a{
+                    font-size: 1rem;
+                }
+            }
+        }
+        #FooterSocialMedia{
+            margin-left: 25%;
+            a{
+                img{
+                    width: 7vw;
+                }
+            }
+        }
+    }
+    }
+}
