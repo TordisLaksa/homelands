@@ -77,6 +77,8 @@
         }
     }
 }
+
+// Breakpoints
 $large: 1300px;
 $tablet: 980px;
 $mobile: 580px;
@@ -84,24 +86,26 @@ $mobile: 580px;
 @media screen and (max-width: $large) {
     header {
         .burgerMenu {
-            left: 91vw;
-            top: 1vw;
-
+            left: 94vw;
+            top: .7vw;
             .burgerMenuHome {
-                padding-bottom: 1vw;
-                height: 6vw;
-                width: 4.5vw;
+                height: 4.5vw;
+                width: 3vw;
             }
         }
-
+        
         .burgerMenuActive {
-            height: 7vw;
+            height: 4.5vw;
             width: 4.5vw;
-            left: 91.5vw;
+            left: 94vw;
 
             .burgerMenuClose {
-                width: 4.5vw;
+                width: 3vw;
+                height: 5vw;
             }
+        }
+        .activeMenu{
+            height: 4.5vw;
         }
     }
 }
@@ -109,24 +113,28 @@ $mobile: 580px;
 @media screen and (max-width: $tablet) {
     header {
         .burgerMenu {
-            left: 91vw;
+            left: 92vw;
             top: 1vw;
-
+            
             .burgerMenuHome {
-                padding-bottom: 1vw;
-                height: 6vw;
-                width: 4.5vw;
+                height: 4.5vw;
+                width: 4vw;
             }
         }
-
+        
         .burgerMenuActive {
-            height: 7vw;
+            // background-color: red;
+            height: 5vw;
             width: 4.5vw;
-            left: 91.5vw;
+            left: 92vw;
 
             .burgerMenuClose {
-                width: 4.5vw;
+                width: 3.5vw;
             }
+        }
+        .activeMenu {
+            height: 5vw;
+            left: -6.5vw;
         }
     }
 }
@@ -138,15 +146,16 @@ $mobile: 580px;
             top: 1vw;
             .burgerMenuHome {
                 padding-bottom: 1vw;
-                height: 6vw;
+                height: 7vw;
                 width: 4.5vw;
             }
         }
         .burgerMenuActive{
             height: 7vw;
             width: 4.5vw;
-            left: 91.5vw;
+            left: 91vw;
             .burgerMenuClose{
+                top: 1vw;
                 width: 4.5vw;
             }
         }

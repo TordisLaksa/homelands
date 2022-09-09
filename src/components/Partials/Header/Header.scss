@@ -34,7 +34,7 @@ $mobile: 580px;
 @media screen and (max-width: $large) {
     body{
       header {
-        height: 6vw;
+        height: 5vw;
         background-color: $headandfoot;
         #headerShape {
           display: none;
@@ -47,7 +47,7 @@ $mobile: 580px;
 
     // background-color: $bg-yellow;
     header {
-        height: 8vw;
+        height: 6vw;
     
       #headerShape {
         display: none;
@@ -58,7 +58,7 @@ $mobile: 580px;
 @media screen and (max-width: $mobile) {
   body {
     header {
-      height: 10vw;
+      height: 9vw;
       
       #headerShape {
         display: none;
