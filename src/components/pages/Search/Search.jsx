@@ -1,3 +1,5 @@
+/** 
+
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
@@ -14,7 +16,7 @@ export const Search = () => {
     }
     return (
         <>
-            {/* Closure */}
+            { Closure }
             <form onSubmit={handleSubmit(getSearchResult)}>
                 <input type="text" id="keyword" placeholder="Indtast søgeord"{...register('keyword', { required: true })} />
                 <button><AiOutlineSearch /></button>
@@ -75,4 +77,4 @@ const NoResults = (props) => {
             <p> - Kontrollér stavningen, eller prøv igen med en mindre specifik søgeterm</p>
         </>
     )
-}
+}*/

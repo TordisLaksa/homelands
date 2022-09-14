@@ -1,29 +1,31 @@
 @import '../../../Assets/SCSS/vars.scss';
 
-.CommentCarousel{
-    width: 99vw;
-    background-color: $secondary;
-    margin-left: -4.9vw;
-    padding: 2%;
-    margin-bottom: 3%;
-    .CommentArticle{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        h3{
-            font-size: 1.3rem;
-        }
-        p{
-            padding-block: .3%;
-            &:first-of-type{
-                font-size: 1.1rem;
-            }
-        }
-    }
-    button{
-        display: none;
-    }
-}
+// .CommentCarousel{
+//     width: 99vw;
+//     background-color: $secondary;
+//     margin-left: -4.9vw;
+//     padding: 2%;
+//     margin-bottom: 3%;
+//     .CommentArticle{
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         h3{
+//             font-size: 1.3rem;
+//         }
+//         p{
+//             padding-block: .3%;
+//             &:first-of-type{
+//                 font-size: 1.1rem;
+//             }
+//         }
+//     }
+//     button{
+//         display: none;
+//     }
+// }
+
+
 
 
 //BREAKPOINTS
@@ -32,25 +34,25 @@ $tablet: 980px;
 $mobile: 580px;
 
 
-@media screen and (max-width: $large) {
-    body{
+// @media screen and (max-width: $large) {
+//     body{
        
-    .CommentCarousel{
-        width: 98.6vw;
-    }
-    }
-  }
-@media screen and (max-width: $tablet) {
-  body{
-    .CommentCarousel{
-        width: 98.3vw;
-    }
-  }
-}
-@media screen and (max-width: $mobile){
-    body{
-        .CommentCarousel {
-            width: 97vw;
-        }
-    }
-}
+//     .CommentCarousel{
+//         width: 98.6vw;
+//     }
+//     }
+//   }
+// @media screen and (max-width: $tablet) {
+//   body{
+//     .CommentCarousel{
+//         width: 98.3vw;
+//     }
+//   }
+// }
+// @media screen and (max-width: $mobile){
+//     body{
+//         .CommentCarousel {
+//             width: 97vw;
+//         }
+//     }
+// }

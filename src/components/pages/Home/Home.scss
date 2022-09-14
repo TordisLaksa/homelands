@@ -38,6 +38,7 @@ main{
     gap: 3%;
     width: 90%;
     margin: auto;
+    margin-bottom: 50vw;
     
     .Cards{
         background-color: rgba(255, 255, 255, 0.85);
@@ -64,12 +65,28 @@ main{
 #ReadyForComments{
     margin-top: 50vw;
     text-align: center;
+    position: relative;
     h2{
         font-size: 2rem;
         margin-bottom: 3%;
-        margin-left: -4vw;
     }
-   
+   .svgImg {
+        position: absolute;
+        width: 2vw;
+        height: 2vw;
+    &.l-a {
+        left: 0;
+    }
+    &.r-a {
+        left: 92%;
+    }
+       
+   }
+   .CommentCarousel {
+       .Slide {
+           display: none;
+       }
+   }
 }
 
 #Employee{
@@ -204,7 +221,7 @@ $mobile: 580px;
         margin-top: 10%;
         height: fit-content;
         display: grid;
-        grid-template-columns: auto;
+        grid-template-columns: 1fr;
         gap: 0;
         .Cards{
             height: 80vw;

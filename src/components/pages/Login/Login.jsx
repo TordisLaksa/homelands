@@ -6,6 +6,7 @@ import { Layout } from "../../App/Layout/Layout";
 import { authHeader } from "../../../AppService/AuthHeader";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ConvertedDate } from "../../App/Helpers/Helpers";
 
 
 export const Login = () => {
@@ -18,6 +19,9 @@ export const Login = () => {
     
     //min getter og setter
     const { loginData, setLoginData } = useAuth();
+    
+    const [ message, setMessage ] = useState('');
+    
 
     //sender min Login Request
     const sendLoginRequest = async (data, e) => {
@@ -28,11 +32,16 @@ export const Login = () => {
         //tilføjer username og password fra data til objectet
         formData.append("username", data.username);
         formData.append("password", data.password);
-        const endpoint = "https://api.mediehuset.net/token";
-        //poster til url endpoint med formData
-        const result = await axios.post(endpoint, formData);
-        //sætter result i min handleSessionData
-        handleSessionData(result);
+        
+        try {
+            const endpoint = "https://api.mediehuset.net/token";
+            //poster til url endpoint med formData
+            const result = await axios.post(endpoint, formData);
+            //sætter result i min handleSessionData
+            handleSessionData(result);
+        } catch (error) {
+            setMessage('Kunne ikke logge ind!')
+        }
     };
 
     const handleSessionData = (res) => {
@@ -83,6 +92,11 @@ export const Login = () => {
                             <span className="error">Udfyld venligst din adgangskode!</span>
                         )}
                 </div>
+                {message && (
+                    <div>
+                        <span className="error">{message}</span>
+                    </div>
+                )}
                 <div className="buttons">
                     <button>Login</button>
                     <button type="reset">Annuller</button>
@@ -129,10 +143,9 @@ export const CommentPost = () => {
             });
             if (result) {
                 console.log('Ok post')
-                console.log(data);
             }
         } catch (error) {
-            console.log('fuck');
+            console.log('fejl');
 
         }
 
@@ -205,15 +218,13 @@ export const CommentPanel = () => {
                 </tr>
                 <tr><td><hr /></td></tr>
             {userData && userData.map((user, i) => {
-                let myDate = new Date(user.created_friendly);
-                let final_date = myDate.getDate() + " - " + (myDate.getMonth() + 1) + " - " + (myDate.getYear() - 100);
                 if (user.user_id == loginData.user_id) {
                  
                     return(
                         <React.Fragment key={i}>
                         <tr>
                             <td>{user.title}</td>
-                            <td>{final_date}</td>
+                            <td>{ConvertedDate(user.created_friendly)}</td>
                             <td>
                                 <Link to={`/putcomment/${user.id}`}><button>Edit</button></Link>
                                 <CommentDelete id={user.id} />

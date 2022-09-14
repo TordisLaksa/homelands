@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom"
 import Logo from '../../../Assets/Images/Logo.svg'
-import { Search } from "../../pages/Search/Search"
+import { SearchBar } from "../../pages/Search/SearchBar"
+
 import './Nav.scss'
 
 export const Nav = () => {
@@ -11,7 +12,7 @@ export const Nav = () => {
                 <li><NavLink to={'/'}>Forside</NavLink></li>
                 <li><NavLink to={'/forsalelist'}>Boliger til salg</NavLink></li>
                 <li><NavLink to={'/login'}>Login</NavLink></li>
-                <Search />
+                <SearchBar />
             </ul>
         </nav>
     )

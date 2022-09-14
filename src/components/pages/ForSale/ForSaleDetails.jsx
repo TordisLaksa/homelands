@@ -2,9 +2,11 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom"
+import { PriceToDK } from "../../App/Helpers/Helpers";
 import { Layout } from "../../App/Layout/Layout"
 import './ForSaleDetails.scss'
-
+import { ModalContent } from "./ModalContent"
+import { useModalStore } from "./useModalStore"
 
 
 export const ForSaleDetails = () => {
@@ -25,11 +27,32 @@ export const ForSaleDetails = () => {
         getHomeData();
     }, [home_id])
     
+    const { ToggleModal, modalData, setModalData, setToggleModal } = useModalStore((store) => ({
+        ToggleModal: store.ToggleModal,
+        modalData: store.modalData,
+        setModalData: store.setModalData,
+        setToggleModal: store.setToggleModal,
+    }));
+    
+    const doLike = () => {
+        console.log("LIKE!!");
+    }
+
+    const showModal = (display, id) => {
+        if (id === 3) {
+            doLike()
+        }
+        else {
+            setToggleModal(display)
+            setModalData(id)
+        }
+    }
+    
     const arrIcons = [
-        { name: 'CameraIcon.svg', key: 1, alt: 'camera-icon' },
-        { name: 'LayoutIcon.svg', key: 2, alt: 'layout-icon' },
-        { name: 'LocationIcon.svg', key: 3, alt: 'location-icon' },
-        { name: 'HeartIcon.svg', key: 4, alt: 'heart-icon' }
+        { name: 'CameraIcon.svg', key: 1, alt: 'camera-icon', id: 'Camera' },
+        { name: 'LayoutIcon.svg', key: 2, alt: 'layout-icon', id: 'Layout' },
+        { name: 'LocationIcon.svg', key: 3, alt: 'location-icon', id: 'Location' },
+        { name: 'HeartIcon.svg', key: 4, alt: 'heart-icon', id: 'Heart' }
     ]
     
     
@@ -43,12 +66,23 @@ export const ForSaleDetails = () => {
         let TotalDays = Math.floor(difference / (1000 * 60 * 60 * 24));
         return TotalDays;
     }
+
+
+    
+    
     return(
         <Layout title='Detaljer'>
             
         {homeData ? (
             <>
-            <section id="ForSaleSection">
+            <div style={{ "display": ToggleModal }} className="modal">
+                <section onClick={() => setToggleModal("none")}>
+                    <span >
+                        <ModalContent idToShow={modalData} />
+                    </span>
+                </section>
+            </div>
+            <section id="ForSaleSection">'
                 <figure>
                     <img id='TopImg' src={homeData.images[0].filename.large} alt={homeData.images[0].description} />
                     <figcaption id="DetailHomeInfo">
@@ -62,7 +96,7 @@ export const ForSaleDetails = () => {
                             {arrIcons.map((item, i)  => {
                                 return(
                                     <React.Fragment key={i}>
-                                        <div className="circle">
+                                        <div className="circle" onClick={() => showModal("flex", i)}>
                                             <img src={require (`../../../Assets/Images/${item.name}`)} alt={item.alt} />
                                         </div>
                                     </React.Fragment>
@@ -70,9 +104,9 @@ export const ForSaleDetails = () => {
                                 })}
                         </article>
                         <article>
-                            <h5>Kontantpris: <span className="biggertxt"> {homeData.price} kr. </span> </h5>
-                            <h5>Udbetaling: {homeData.payout} kr.</h5>
-                            <h5>Ejerudgift per måned: {homeData.cost} kr.</h5>
+                            <h5>Kontantpris: <span className="biggertxt">{PriceToDK(homeData.price)} kr. </span> </h5>
+                            <h5>Udbetaling: {PriceToDK(homeData.payout)} kr.</h5>
+                            <h5>Ejerudgift per måned: {PriceToDK(homeData.cost)} kr.</h5>
                         </article>
                     </figcaption>
                     <figcaption id='DetailSpecificInfo'>
@@ -92,11 +126,11 @@ export const ForSaleDetails = () => {
                             <p>Liggetid: {days(todaySDate)} dage</p>
                         </article>
                         <article>
-                            <p>Kontantpris: {homeData.price} kr.</p>
-                            <p>Udbetaling: {homeData.payout} kr.</p>
-                            <p>Brutto ex. ejerudgift: {homeData.gross} kr.</p>
-                            <p>Netto ex. ejerudgift: {homeData.net} kr.</p>
-                            <p>Ejerudgift: {homeData.cost} kr.</p>
+                            <p>Kontantpris: {PriceToDK(homeData.price)} kr.</p>
+                            <p>Udbetaling: {PriceToDK(homeData.payout)} kr.</p>
+                            <p>Brutto ex. ejerudgift: {PriceToDK(homeData.gross)} kr.</p>
+                            <p>Netto ex. ejerudgift: {PriceToDK(homeData.net)} kr.</p>
+                            <p>Ejerudgift: {PriceToDK(homeData.cost)} kr.</p>
                         </article>
                     </figcaption>
                     <figcaption id='DetailContact'>

@@ -24,7 +24,7 @@
     border: solid 1px #fff;
 }
 
-//newline til break
+//newline to break
 @mixin nl2br {
     white-space: pre-wrap;
 }
@@ -42,8 +42,13 @@
     width: 100%;
 }
 
-@mixin clear-list {
-    list-style-type: none;
+@mixin LiACleanUp {
+    li{
+        list-style-type: none;
+        a{
+            text-decoration: none;
+        }
+    }
 }
 
 @mixin BorderRadius{
@@ -57,4 +62,14 @@
 
 @mixin TinyPadding{
     padding: 1%;
+}
+
+@mixin Grid3{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@mixin Grid2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }

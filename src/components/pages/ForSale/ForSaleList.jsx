@@ -3,12 +3,14 @@ import { Link, useParams } from "react-router-dom";
 import { Layout } from "../../App/Layout/Layout"
 import axios from 'axios';
 import './ForSaleList.scss'
+import { PriceToDK } from "../../App/Helpers/Helpers";
 
 export const ForSaleList = () => {
     
     const { home_id } = useParams(0);
     const [ homeList, setHomeList ] = useState([]);
     
+    //som en side effekt af at indlæser siden så skal den hente listen
     useEffect(() => {
         const getHomeList = async () => {
             try {
@@ -21,14 +23,13 @@ export const ForSaleList = () => {
             }
         }
         getHomeList();
-    }, [])
+
+    }, [setHomeList])
     
     return(
         <Layout title='Boliger til salg'>
             <article id="ForSaleArticle">
             {homeList && homeList.map(home => {
-                //HUSK AT FORKLARE DEN HER!
-                let val = Number(home.price).toLocaleString('da-DK');
                return(
                    <figure key={home.id} className='card'>
                         <Link to={`${home.id}`}>
@@ -45,7 +46,7 @@ export const ForSaleList = () => {
                                     <div className={home.energy_label_name}><p>{home.energy_label_name} </p></div>
                                     <p>{home.num_rooms} værelser, {home.floor_space}m2</p>
                                 </div>
-                                <p>{val} kr.</p>
+                                <p>{PriceToDK(home.price)} kr.</p>
                             </article>
                         </figcaption>
                     </figure>

@@ -4,6 +4,7 @@ import { Layout } from "../../App/Layout/Layout"
 import Carousel from 'react-material-ui-carousel';
 import './Home.scss';
 import { Comment } from "../../Partials/Comments/Comments";
+import { PriceToDK } from "../../App/Helpers/Helpers";
 
 export const Home = () => {
     const [ sliderImg, setSliderImg ] = useState([]);
@@ -98,7 +99,7 @@ export const Card3Images = () => {
     return(
         <section id="cardSection">
         {getHomeImages && getHomeImages.slice(0,3).map(item => {
-            let val = Number(item.price).toLocaleString('da-DK');
+           
             return(
                 <figure key={item.id} className='Cards'>
                     {item.images && item.images.slice(0,1).map(img => {
@@ -117,7 +118,7 @@ export const Card3Images = () => {
                         <div>
                             <div className={item.energy_label_name}><p>{item.energy_label_name}</p></div>
                             <p>{item.num_rooms} værelser, {item.floor_space} m2</p>
-                            <p>{val} kr.</p>
+                            <p>{PriceToDK(item.price)} kr.</p>
                         </div>
                     </figcaption>
                 </figure>
